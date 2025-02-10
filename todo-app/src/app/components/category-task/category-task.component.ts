@@ -43,12 +43,13 @@ export class CategoryTaskComponent {
       new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false })
     );
     const taskDueDate = signal<string>(String(this.task().dueDate));
-    const taskDueTime = signal<string>(String(this.task().dueTime || '00:00:00'));
+    const taskDueTime = signal<string>(String(this.task().dueTime));
 
     if (this.task().completed) {
       this.status.set('completed');
     } else if (taskDueDate() < currentDate()) {
       if (taskDueTime() < currentTime()) {
+        console.log(taskDueTime(), currentTime());
         this.status.set('overdue');
       } else {
         this.status.set('upcoming');

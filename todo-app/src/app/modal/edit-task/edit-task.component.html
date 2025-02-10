@@ -3,7 +3,7 @@
   [class]="{ 'add-new': true }"
 >
   <div class="application-form" (click)="$event.stopPropagation()">
-    <h2 class="form-title">New Task</h2>
+    <h2 class="form-title">Edit Task</h2>
     
     <form class="form" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
       <div>

@@ -25,7 +25,7 @@
   
           <mat-form-field appearance="outline">
             <mat-label>Due Time</mat-label>
-            <input matInput type="time" formControlName="dueTime">
+            <input matInput type="time" formControlName="dueTime" pattern="([01][0-9]|2[0-3]):[0-5][0-9]" placeholder="HH:MM">
           </mat-form-field>
   
           <mat-form-field appearance="outline" class="priority-type">
