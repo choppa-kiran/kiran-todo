@@ -1,0 +1,65 @@
+.delete-modal {
+  padding: 20px;
+  text-align: center;
+  max-width: 300px;
+}
+
+h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+	color: #CD2737;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-btn {
+  background-color: white;
+  color: #f12f2f;
+  border: solid 1px #e68686;
+  border-radius: 5px;
+  padding: 6px 15px;
+  transition: border-color 0.3s;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.delete-btn:hover {
+  cursor: pointer;
+  border-color: #e92121;
+}
+
+.delete-btn:active {
+  background-color: rgb(255, 177, 177);
+}
+
+.cancel-btn {
+  background-color: white;
+  color: rgb(2, 128, 2);
+  border: solid 1px rgb(67, 163, 67);
+  border-radius: 5px;
+  padding: 6px 15px;
+  transition: border-color 0.3s;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.cancel-btn:hover {
+  cursor: pointer;
+  border-color: rgb(5, 139, 5);
+}
+
+.cancel-btn:active {
+  background-color: rgb(198, 255, 198);
+}

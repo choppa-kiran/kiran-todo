@@ -1,0 +1,67 @@
+<div class="container">
+	<div class="headings">
+		<div class="task-title">
+			<div>
+				<input 
+					type="checkbox"
+					[(ngModel)]="task().completed"
+					(change)="onCheckboxChange($event)"
+					class="complete-checkbox"
+				/>
+			</div>
+			<div>
+				{{ task().title }}
+			</div>
+			<div 
+				class="priority"
+				[ngClass]="{
+					high: task().priority === 'High',
+					medium: task().priority === 'Medium',
+					low: task().priority === 'Low',
+				}"
+			>
+			</div>
+		</div>
+		<div class="task-date-time">
+			<img src="assets/calendar.svg" alt="calendar" />
+			{{ task().dueDate | date: 'yyyy-MM-dd'}} -
+			{{ task().dueTime }}
+		</div>
+		<div class="task-status">
+			<img src="assets/delete.svg" alt="delete" class="action-btn" (click)="deleteTask()">
+			<img src="assets/edit.svg" alt="edit" class="action-btn" (click)="editTask($event)" [style.visibility]="!task().completed ? 'visible' : 'hidden'">
+			<div
+				class="status"
+				[ngClass]="{
+					completed: status() === 'completed',
+					overdue: status() === 'overdue',
+					upcoming: status() === 'upcoming',
+				}"
+			>
+				{{ status() }}
+			</div>
+		</div>
+	</div>
+	<div class="arrow-div">
+		<div class="arrow-area" (click)="onArrowClick()">
+			<img
+				src="assets/nav-arrow.svg"
+				alt="arrow"
+				[class]="{
+					'rotate-first': true,
+					rotate: infoVisible()
+				}"
+			/>
+		</div>
+	</div>
+	<div
+		[class]="{
+			info: true,
+			'info-visible': infoVisible()
+		}"
+	>
+		<div class="reason">
+			{{ task().description || "-" }}
+		</div>
+	</div>
+</div>

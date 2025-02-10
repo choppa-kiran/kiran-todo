@@ -1,0 +1,24 @@
+<div
+  [class]="{
+    sidebar: true,
+    visible: isVisible()
+  }"
+>
+  <ul class="MuiList-root MuiList-padding css-1ontqvh">
+    @for (tab of tabs; track $index) {
+    <div class="tab">
+      <li>
+        <app-tab [title]="tab" />
+      </li>
+      <hr />
+    </div>
+    }
+  </ul>
+</div>
+
+<img
+  class="toggle-btn"
+  src="assets/menu.svg"
+  alt="menu"
+  (click)="toggleBtn()"
+/>

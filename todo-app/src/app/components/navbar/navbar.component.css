@@ -1,0 +1,119 @@
+.navbar {
+  padding: 0px 24px 0px 24px;
+  min-height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 0px 10px 1px rgb(130, 130, 130);
+  z-index: 20;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  height: 56px;
+}
+
+.right-box {
+  display: flex;
+  align-items: center;
+}
+
+.notification-new {
+  position: relative;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 4px;
+  background-color: red;
+  position: absolute;
+  top: 10px;
+  right: 14px;
+}
+
+.notification {
+  padding: 8px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background-color: white;
+  transition: background-color 0.2s;
+}
+
+.notification:hover {
+  background-color: rgb(235, 235, 235);
+  cursor: pointer;
+}
+
+.avatar {
+  padding: 6px 8px 6px 8px;
+  border-radius: 4px;
+  background-color: white;
+  transition: background-color 0.2s;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.avatar:hover {
+  background-color: rgb(240, 240, 240);
+  cursor: pointer;
+}
+
+.drop-down {
+  padding: 10px 0px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 1px rgb(160, 160, 160);
+  position: fixed;
+  top: 53px;
+  right: 40px;
+  z-index: 21;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.drop-down > div {
+  padding: 6px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+  background-color: white;
+  transition: background-color 0.2s;
+  position: relative;
+}
+.notification-dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 4px;
+  position: absolute;
+  right: 10px;
+}
+.new-notification {
+  background-color: rgb(199, 0, 0);
+}
+
+.drop-down > div:hover {
+  background-color: rgb(236, 235, 235);
+  cursor: pointer;
+}
+.drop-down img {
+  margin-right: 16px;
+}
+
+.view {
+  display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  .navbar {
+    padding-left: 50px;
+  }
+}

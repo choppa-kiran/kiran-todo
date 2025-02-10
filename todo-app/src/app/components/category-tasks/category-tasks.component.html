@@ -1,0 +1,32 @@
+<div class="tasks-list">
+	<div class="top-bar">
+		<div class="priority-info">
+			<div class="priority-title">
+				Priority categories: 
+			</div>
+			<div class="sub-info" [ngClass]="{selected: selectedPriority() == 'All'}" (click)="priorityFilter('All')">
+				<div class="priority all"></div> All
+			</div>
+			<div class="sub-info" [ngClass]="{selected: selectedPriority() == 'Low'}" (click)="priorityFilter('Low')">
+				<div class="priority low"></div> Low
+			</div>
+			<div class="sub-info" [ngClass]="{selected: selectedPriority() == 'Medium'}" (click)="priorityFilter('Medium')">
+				<div class="priority medium"></div> Medium
+			</div>
+			<div class="sub-info" [ngClass]="{selected: selectedPriority() == 'High'}" (click)="priorityFilter('High')">
+				<div class="priority high"></div> High
+			</div>
+		</div>
+		<div class="search">
+			<input type="text" placeholder="Search" [(ngModel)]="searchText" (input)="searchTask()" />
+		</div>
+	</div>
+	@if (filteredTasks().length != 0){ 
+		@for (task of filteredTasks(); track $index){
+		<app-category-task
+			[task]="task"
+			(taskUpdated)="updateTask($event)"
+		/>
+		}
+	}
+</div>

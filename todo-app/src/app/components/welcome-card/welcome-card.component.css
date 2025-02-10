@@ -1,0 +1,46 @@
+.welcome-card {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 20px;
+  height: 94px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+}
+
+.welcome {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  background: rgb(9, 121, 13);
+  background: linear-gradient(
+    90deg,
+    rgba(9, 121, 13, 1) 0%,
+    rgba(5, 106, 133, 1) 50%,
+    rgba(0, 91, 254, 1) 100%
+  );
+}
+
+.time-date {
+  background-color: white;
+    border: solid thin rgb(212, 212, 212);
+    font-size: 1rem;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.full-length {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+@media only screen and (max-width: 1000px) {
+  .welcome-card {
+    margin-left: 30px;
+  }
+}

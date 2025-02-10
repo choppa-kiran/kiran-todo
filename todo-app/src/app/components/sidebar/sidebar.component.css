@@ -1,0 +1,60 @@
+.sidebar {
+  width: 180px;
+  height: 82%;
+  box-sizing: border-box;
+  border-radius: 20px;
+  box-shadow: 0px 0px 1px 1px rgb(235, 235, 235);
+  overflow: hidden;
+  background-color: white;
+  position: sticky;
+  top: 80px;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 8px 0px;
+  position: relative;
+}
+
+hr {
+  border-top: 1px solid rgb(234, 235, 235);
+  margin: 0;
+}
+
+.toggle-btn {
+  position: fixed;
+  height: 24px;
+  width: 24px;
+  top: 9px;
+  left: 5px;
+  z-index: 50;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: none;
+  display: none;
+  transition: background-color 0.2s;
+}
+
+.toggle-btn:hover {
+  cursor: pointer;
+  background-color: rgb(238, 238, 238);
+}
+.toggle-btn:active {
+  background-color: rgb(243, 243, 243);
+}
+
+@media only screen and (max-width: 1000px) {
+  .sidebar {
+    position: fixed;
+    left: -180px;
+    transition: left 0.5s;
+  }
+  .visible {
+    display: inline;
+    left: 20px;
+  }
+  .toggle-btn {
+    display: inline;
+  }
+}

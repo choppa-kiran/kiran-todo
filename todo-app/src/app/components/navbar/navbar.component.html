@@ -1,0 +1,41 @@
+<div class="navbar">
+  <a href=""><img src="assets/logo.png" alt="logo" class="logo" /></a>
+
+  <div class="right-box">
+    <a (click)="onViewNotification($event)" class="notification-new">
+      <img
+        src="assets/notification.svg"
+        alt="notification"
+        class="notification"
+      />
+      <div
+        [class]="{
+          dot: true,
+          view: !newNotification()
+        }"
+      ></div>
+    </a>
+  </div>
+</div>
+
+<div
+  [class]="{
+    'drop-down': true,
+    view: !viewNotification()
+  }"
+  (click)="$event.stopPropagation()"
+>
+  @if (notifications().length){ @for (noti of notifications(); track $index) {
+  <div (click)="readNotification(noti.notification_id, $index)">
+    {{ noti.message }}
+    <div
+      [ngClass]="{
+        'notification-dot': true,
+        'new-notification': !noti.is_viewed
+      }"
+    ></div>
+  </div>
+  } } @else {
+  <div>No new notifications</div>
+  }
+</div>

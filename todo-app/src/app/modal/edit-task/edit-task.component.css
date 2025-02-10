@@ -1,0 +1,133 @@
+/* Background Overlay */
+.add-new {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(63, 63, 63, 0.56);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 40;
+}
+
+/* Application Form Container */
+.application-form {
+  background-color: white;
+  width: 500px;
+  padding: 20px 40px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px 0px rgb(78, 78, 78);
+  position: relative;
+	z-index: 41;
+}
+
+.form-title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: 20px;
+	color: black;
+	text-align: center;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.date-time-priority-discription {
+	display: flex;
+}
+
+.date-time-priority {
+	display: flex;
+	flex-direction: column	;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.full-height {
+	margin: 0px 0px 0px 10px;
+	width: 242px;
+}
+
+.full-height textarea {
+	height: 180px;
+}
+
+.priority-type select:hover {
+  cursor: pointer;
+}
+
+.priority-type option {
+  padding: 10px;
+  font-size: 14px;
+  background-color: white;
+  color: black;
+}
+
+.priority-type option:hover {
+  background-color: #f1f1f1;
+	cursor: pointer;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  background-color: #4d6cd9;
+  color: white;
+  font-size: 15px;
+  padding: 10px 18px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: #3154d3;
+  cursor: pointer;
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  background-color: white;
+  color: #f12f2f;
+  border: 1px solid #e68686;
+  border-radius: 5px;
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: border-color 0.3s;
+}
+
+.cancel-btn:hover {
+  cursor: pointer;
+  border-color: #e92121;
+}
+
+.cancel-btn:active {
+  background-color: rgb(255, 177, 177);
+}
+
+@media only screen and (max-width: 850px) {
+  .application-form {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .date-time-container {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,54 @@
+<div class="add-button" (click)="onToggle($event)">+</div>
+
+<div
+  #addNewDiv
+  [class]="{ 'add-new': true, view: !addNew() }"
+>
+  <div class="application-form" (click)="$event.stopPropagation()">
+    <h2 class="form-title">New Task</h2>
+    
+    <form class="form" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <div>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Task Title</mat-label>
+          <input matInput formControlName="title" placeholder="Enter task title">
+        </mat-form-field>
+      </div>
+      <div class="date-time-priority-discription">
+        <div class="date-time-priority">
+          <mat-form-field appearance="outline">
+            <mat-label>Due Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dueDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline">
+            <mat-label>Due Time</mat-label>
+            <input matInput type="time" formControlName="dueTime">
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="priority-type">
+            <mat-label>Priority</mat-label>
+            <select matNativeControl formControlName="priority" >
+              @for (priority of priorityLevels; track $index) {
+                <option [value]="priority" class="priority-type">{{ priority }}</option>
+              }
+            </select>
+          </mat-form-field>
+  
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="full-height">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" placeholder="Enter task description"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="button-group">
+        <button type="button" class="cancel-btn" (click)="onToggle($event)">Cancel</button>
+        <button type="submit" class="submit-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

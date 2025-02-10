@@ -1,0 +1,52 @@
+.tab {
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.2s;
+  overflow: hidden;
+  position: relative;
+}
+
+.content {
+  height: 32px;
+  width: 147px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px 8px 16px;
+}
+
+.tab:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.selected {
+  background-color: rgb(190, 190, 190);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  margin-right: 15px;
+}
+
+.title {
+  height: 24px;
+  width: 107px;
+  align-content: center;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
