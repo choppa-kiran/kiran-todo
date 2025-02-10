@@ -1,7 +1,3 @@
-# kiran-todo
-
-# Demo Link
-
 # Tools Used
 
 - Angular
