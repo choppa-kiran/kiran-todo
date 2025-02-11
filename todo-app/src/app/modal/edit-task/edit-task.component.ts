@@ -11,12 +11,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TodoService } from '../../services/todo.service';
+import { provideNativeDateAdapter } from "@angular/material/core"
 import { Time } from '@angular/common';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-task',
   standalone: true,
+  providers: [provideNativeDateAdapter()],
   imports: [
     MatFormFieldModule,
     MatInputModule,
@@ -42,7 +45,7 @@ export class EditTaskComponent {
 
   @ViewChild('addNewDiv') addNewDiv!: ElementRef;
   
-  constructor(@Inject(MAT_DIALOG_DATA) public data: taskDialog, private dialogRef: MatDialogRef<EditTaskComponent>,) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: taskDialog, private dialogRef: MatDialogRef<EditTaskComponent>, private snackbar : MatSnackBar) { }
 
   ngAfterViewInit() {
     this.addNewDiv.nativeElement.addEventListener(
@@ -94,6 +97,10 @@ export class EditTaskComponent {
           priority: formData.priority!,
           completed: this.task!.completed,
         });
+        this.snackbar.open('Task Updated Successfully', '', {
+          duration: 2000,
+          panelClass: 'success'
+        });
       } else {
         this.todoService.addTask({
           id: 0,
@@ -103,6 +110,10 @@ export class EditTaskComponent {
           dueTime: formData.dueTime!,
           priority: formData.priority!,
           completed: false,
+        });
+        this.snackbar.open('Task Added Successfully', '', {
+          duration: 2000,
+          panelClass: 'success'
         });
       }
       this.dialogRef.close();

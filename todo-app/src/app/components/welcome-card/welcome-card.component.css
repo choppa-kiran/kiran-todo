@@ -14,6 +14,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
+  border-radius: 10px;
   background: rgb(9, 121, 13);
   background: linear-gradient(
     90deg,
@@ -25,12 +26,13 @@
 
 .time-date {
   background-color: white;
-    border: solid thin rgb(212, 212, 212);
-    font-size: 1rem;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  border: solid thin rgb(212, 212, 212);
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .full-length {

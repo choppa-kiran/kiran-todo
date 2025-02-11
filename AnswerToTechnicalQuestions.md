@@ -48,7 +48,9 @@ checkOverdueStatus() {
   }
 ```
 
----
+**Question:- How would you track down a performance issue in production? Have you ever had to do this?**
+
+To track down a performance issue in production, I would start by checking log files to identify any errors or anomalies. In my current project, I first resolved an issue with the wrong directory selection while running the application. Then, I tackled a deployment issue with Vercel by researching solutions on Stack Overflow and fixing it by adding a vercel.json file.
 
 **Question:- If you had more time, what additional features or improvements would you consider adding to the task management application?**
 

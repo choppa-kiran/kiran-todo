@@ -21,6 +21,7 @@ export class CategoryTaskComponent {
   status = signal<string>('');
   task = input.required<Task>();
   @Output() taskUpdated = new EventEmitter<Task>();
+  @Output() refreshTasks = new EventEmitter<void>();
   private intervalId: any;
   private todoService = inject(TodoService);
 
@@ -47,13 +48,14 @@ export class CategoryTaskComponent {
 
     if (this.task().completed) {
       this.status.set('completed');
-    } else if (taskDueDate() < currentDate()) {
+    } else if (taskDueDate() == currentDate()) {
       if (taskDueTime() < currentTime()) {
-        console.log(taskDueTime(), currentTime());
         this.status.set('overdue');
       } else {
         this.status.set('upcoming');
       }
+    } else if (taskDueDate() < currentDate()) {
+      this.status.set('overdue');
     } else {
       this.status.set('upcoming');
     }
@@ -79,12 +81,10 @@ export class CategoryTaskComponent {
     dialogRef.afterClosed().subscribe(
           (results) => {
             this.snackbar.open('Task Deleted Successfully', '', {
-              duration: 1500,
+              duration: 2000,
               panelClass: 'danger'
             });
-            setTimeout(() => {
-              window.location.reload();
-            }, 1500);
+            this.refreshTasks.emit();
           }
         )
   }
@@ -97,13 +97,7 @@ export class CategoryTaskComponent {
 
     dialogRef.afterClosed().subscribe(
           (results) => {
-            this.snackbar.open('Task Updated Successfully', '', {
-              duration: 1500,
-              panelClass: 'success'
-            });
-            setTimeout(() => {
-              window.location.reload();
-            }, 1500);
+            this.refreshTasks.emit();
           }
         )
       }

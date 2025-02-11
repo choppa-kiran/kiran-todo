@@ -1,3 +1,7 @@
+# Todo App
+
+Demo Link: https://kiran-todo-33321oi8m-kenkanaki66-gmailcoms-projects.vercel.app/
+
 # Tools Used
 
 - Angular
@@ -7,59 +11,59 @@
 
 **Dash Board**
 
-![](todo-app/src/assets/demo/dashboard.png)
+![](todo-app/src/assets/demo/dashboard1.png)
 
 This is the User Interface
 
 **New Task Creation**
 
-![](src/assets/demo/newTask.png)
+![](todo-app/src/assets/demo/newTask1.png)
 
 New Task modal
 
-![](src/assets/demo/newTaskSnackbar.png)
+![](todo-app/src/assets/demo/newTaskSnackbar1.png)
 
 SnackBar is shown at the bottom on successfully adding a new task
 
 **Edit Task**
 
-![](src/assets/demo/editTask.png)
+![](todo-app/src/assets/demo/editTask1.png)
 
 Edit task modal automatically fills the data for editing
 
 **Delete Task**
 
-![](src/assets/demo/delete.png)
+![](todo-app/src/assets/demo/delete1.png)
 
 Delete confirmation pop up when deleting a task
 
 **Task Status**
 
-![](src/assets/demo/status.png)
+![](todo-app/src/assets/demo/status1.png)
 
 Overdue status automatically updates in realtime
 
-![](src/assets/demo/completed.png)
+![](todo-app/src/assets/demo/completed1.png)
 
 The task status us updated to completed by clicking on the check box
 
 **Task Search**
 
-![](src/assets/demo/search.png)
+![](todo-app/src/assets/demo/search1.png)
 
 A task can be searched by typing the title in the search bar
 
 **Status Filter**
 
-![](src/assets/demo/upcomingFilter.png)
-![](src/assets/demo/overdueFilter.png)
-![](src/assets/demo/completedFilter.png)
+![](todo-app/src/assets/demo/upcomingFilter1.png)
+![](todo-app/src/assets/demo/overdueFilter1.png)
+![](todo-app/src/assets/demo/completedFilter1.png)
 
 Filters based on status
 
 **Priority Filter**
 
-![](src/assets/demo/priorityFilter.png)
+![](todo-app/src/assets/demo/priorityFilter1.png)
 
 Tasks can be filtered in each status filters based on their priority
 

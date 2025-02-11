@@ -6,6 +6,9 @@ import { Task } from '../../model/task.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatDialog } from '@angular/material/dialog';
+import { EditTaskComponent } from '../../modal/edit-task/edit-task.component';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-category-tasks',
@@ -23,7 +26,7 @@ export class CategoryTasksComponent {
   selectedPriority = signal<string>('All');
   searchText = signal<string>('');
   
-  constructor(private route: ActivatedRoute, private snackbar : MatSnackBar) {
+  constructor(private route: ActivatedRoute, private snackbar : MatSnackBar, private matDialog: MatDialog) {
   }
   
   ngOnInit() {
@@ -73,16 +76,30 @@ export class CategoryTasksComponent {
 
     if (task.completed) {
       status ='completed';
-    } else if (taskDueDate() < currentDate()) {
+    } else if (taskDueDate() == currentDate()) {
       if (taskDueTime() < currentTime()) {
         status = 'overdue';
       } else {
         status ='upcoming';
       }
+    } else if (taskDueDate() < currentDate()) {
+      status = 'overdue';
     } else {
       status = 'upcoming';
     }
     return status;
+  }
+
+  openNewTask() {
+    let dialogRef = this.matDialog.open(EditTaskComponent, {
+          width: '80%',
+          data: {task: null, action: 'add'},
+          })
+    dialogRef.afterClosed().subscribe(
+      (results) => {
+        this.getTasks();
+      }
+    )
   }
   
   updateTask(updatedTask: Task) {
@@ -101,17 +118,19 @@ export class CategoryTasksComponent {
   priorityFilter(priority: string) {
     this.selectedPriority.set(priority);
     this.searchText.set('');
+    this.filterTasks();
     if (this.selectedPriority() === 'All') {
-      this.filterTasks();
       return;
     }
-    const filtered = this.allTasks().filter(task => task.priority === this.selectedPriority());
+    const filtered = this.filteredTasks().filter(task => task.priority === this.selectedPriority());
     this.filteredTasks.set(filtered);
   }
 
   searchTask() {
     const searchText = this.searchText().toLowerCase();
-    const filtered = this.allTasks().filter(task => task.title.toLowerCase().includes(searchText));
+    this.filterTasks();
+    this.priorityFilter(this.selectedPriority());
+    const filtered = this.filteredTasks().filter(task => task.title.toLowerCase().includes(searchText));
     this.filteredTasks.set(filtered);
   }
 }
