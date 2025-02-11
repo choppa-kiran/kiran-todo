@@ -7,7 +7,7 @@
 
 **Dash Board**
 
-![](src/assets/demo/dashboard.png)
+![](todo-app/src/assets/demo/dashboard.png)
 
 This is the User Interface
 
