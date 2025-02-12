@@ -117,4 +117,7 @@
 	.top-bar {
 		flex-direction: column;
 	}
+	.priority-info {
+		margin: 10px 0px;
+	}
 }
