@@ -106,3 +106,15 @@
 .low {
 	background-color: #28A745;
 }
+
+@media only screen and (max-width: 1000px) {
+	.tasks-list {
+		margin-left: 16px;
+	}
+	.priority-title {
+		display: none;
+	}
+	.top-bar {
+		flex-direction: column;
+	}
+}
